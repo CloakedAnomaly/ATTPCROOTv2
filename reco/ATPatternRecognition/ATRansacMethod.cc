@@ -19,6 +19,8 @@ ATPATTERN::ATRansacMethod::~ATRansacMethod()
 
 std::vector<ATTrack> ATPATTERN::ATRansacMethod::GetTrackCand() {return fTrackCand;}
 
+std::vector<TVector3> ATPATTERN::ATRansacMethod::GetLine() {return fcoefficients;}
+
 bool ATPATTERN::ATRansacMethod::FindTracks(ATEvent &event, ATPatternEvent *patternEvent)
 {
   //initialize ransac parameters
@@ -74,6 +76,7 @@ bool ATPATTERN::ATRansacMethod::FindTracks(ATEvent &event, ATPatternEvent *patte
           track_out.SetIsNoise(kTRUE);
           tracks.push_back(track_in);
           tracks.push_back(track_out);
+          ATPATTERN::ATRansacMethod::saveLine(v0, v);
           patternEvent->SetTrackCand(tracks);    
           break;
       }//if 
@@ -121,5 +124,15 @@ void ATPATTERN::ATRansacMethod::find_distance(TVector3 v0, TVector3 v, TVector3 
   p_norm.SetZ(v0.Z() + t*v.Z());
   
   distance = sqrt(pow((p.X()-p_norm.X()),2)+pow((p.Y()-p_norm.Y()),2)+pow((p.Z()-p_norm.Z()),2));
+
+}
+
+void ATPATTERN::ATRansacMethod::saveLine(TVector3 v0, TVector3 v)
+//function to save the slope and initial point of the line for ransac
+{
+  std::vector<TVector3> coefficients; 
+  coefficients.push_back(v0);
+  coefficients.push_back(v);
+  fcoefficients = coefficients; 
 
 }

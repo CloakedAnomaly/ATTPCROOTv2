@@ -4,8 +4,8 @@
 * Author: G. Wilks                                                 *
 ********************************************************************/
 
-#ifndef ATTRACKFINDERHC_H
-#define ATTRACKFINDERHC_H
+#ifndef ATRANSACMETHOD_H
+#define ATRANSACMETHOD_H
 
 #ifdef _OPENMP
 #include <omp.h>
@@ -88,7 +88,8 @@ class ATRansacMethod : public ATPRA
 
       bool FindTracks(ATEvent &event, ATPatternEvent *patternEvent);
       std::vector<ATTrack> GetTrackCand();
-
+      std::vector<TVector3> GetLine();
+      
   private:
       
       void find_3Dline(TVector3 p1, TVector3 p2, TVector3& v0, TVector3& v);
@@ -97,9 +98,12 @@ class ATRansacMethod : public ATPRA
       
       void eveToPointHit(ATEvent event, std::vector<ATPATTERN::PointHit>& points);
      
+      void saveLine(TVector3 v0, TVector3 v);
+
       std::vector<ATTrack> fTrackCand; //Candidate tracks
 
-
+      std::vector<TVector3> fcoefficients; //line coefficients
+      
       ClassDef(ATRansacMethod, 1);
 
 };

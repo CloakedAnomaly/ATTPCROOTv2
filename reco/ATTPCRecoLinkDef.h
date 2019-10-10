@@ -58,14 +58,15 @@
 #pragma link C++ class ATRANSACN::ATRansac+;
 #pragma link C++ struct ATRANSACN::ATRansac::PairedLines+;
 
-
-#pragma link C++ class ATPATTERN::ATTrackFinderHC+;
-#pragma link C++ class ATPATTERN::ATPRA+;
+#pragma link C++ nestedclass;
+#pragma link C++ nestedtypedef;
 #pragma link C++ namespace ATPATTERN;
 #pragma link C++ class ATPATTERN::ATRansacMethod+;
 #pragma link C++ struct ATPATTERN::ransac_params+;
 #pragma link C++ struct ATPATTERN::PointHit+;
-
+#pragma link C++ class ATPATTERN::ATTrackFinderHC+;
+#pragma link C++ class ATPATTERN::ATPRA+;
+#pragma link C++ class ATRansacMethodTask+;
 //#ifdef BUILD_PCL
 //#pragma link C++ class ATHoughSpaceLine3D+;
 //#pragma link C++ class ATHoughSpaceLine3D::Sphere+;

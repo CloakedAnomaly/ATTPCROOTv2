@@ -2,6 +2,10 @@
 # List of selected classes
 class MCMinimization
 class MCMinimization::FitPar
-class MCQMinimization
+class ATMCQMinimization
+
+#class MCQMinimization
 header MCMinimization.hh
-header MCQMinimization.hh
+
+header ATMCQMinimization.hh
+#header MCQMinimization.hh

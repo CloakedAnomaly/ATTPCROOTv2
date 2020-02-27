@@ -125,7 +125,7 @@ ATPatternRecognition/msd.cc
 ATPatternRecognition/cluster.cc
 ATPatternRecognition/hc.cc
 ATPatternRecognition/fastcluster.cc
-
+ATPatternRecognition/ATRansacMethod.cc
 
 ATDecoderTask.cc
 ATDecoder2Task.cc
@@ -138,7 +138,7 @@ ATAnalysisTask.cc
 ATRansacTask.cc
 ATHierarchicalClusteringTask.cc
 ATPRATask.cc
-
+ATRansacMethodTask.cc
 )
 
 # Adding libraries that depend on PCL

@@ -2,6 +2,9 @@
 cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 project(StandAloneATTPCROOT)
 
+#SET(BOOST_ROOT "/mnt/data/fair_install/boost_1_62_0/")
+#SET(PCL_DIR "/mnt/data/fair_install/pcl_1.8.1/share/pcl-1.8/")
+
 # Check for needed environment variables
 IF(NOT DEFINED ENV{FAIRROOTPATH})
   MESSAGE(FATAL_ERROR "You did not define the environment variable FAIRROOTPATH which is needed to find FairRoot. Please set this variable and execute cmake again.")

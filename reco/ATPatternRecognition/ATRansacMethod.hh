@@ -39,6 +39,7 @@
 // FairRoot classes
 #include "FairRootManager.h"
 #include "FairLogger.h"
+#include "TMath.h"
 /*
 //PCL
 #include <pcl/common/common.h>
@@ -86,10 +87,14 @@ class ATRansacMethod : public ATPRA
       ATRansacMethod();
       ~ATRansacMethod();
 
-      bool FindTracks(ATEvent &event, ATPatternEvent *patternEvent);
+      bool FindTracks(ATEvent *event, ATPatternEvent *patternEvent);
       std::vector<ATTrack> GetTrackCand();
+      void SetTrackCand(std::vector<ATTrack> tracks);
       std::vector<TVector3> GetLine();
-      
+      void SetIterations(int iterations);
+      void SetRatio(float ratio);
+      void SetThreshold(float threshold);
+
   private:
       
       void find_3Dline(TVector3 p1, TVector3 p2, TVector3& v0, TVector3& v);
@@ -104,6 +109,10 @@ class ATRansacMethod : public ATPRA
 
       std::vector<TVector3> fcoefficients; //line coefficients
       
+      int fiterations;
+      float fratio;
+      float fthreshold;
+
       ClassDef(ATRansacMethod, 1);
 
 };
